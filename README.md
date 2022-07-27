@@ -16,10 +16,11 @@
 
 
 ## Project Status
-I will keep working on it until it's a fully functional website.
+- The game is complete and responsive.
 
 
 ## Room for Improvement
+- In future i will add some animations in this game.
 - I will continue updating this website and keep making it better.
 
 

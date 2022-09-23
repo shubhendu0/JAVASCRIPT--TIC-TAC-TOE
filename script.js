@@ -81,9 +81,15 @@ window.addEventListener('DOMContentLoaded', () => {
     
     const changePlayer = () => {
         playerDisplay.classList.remove(`player${currentPlayer}`);
-            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';        
-            playerDisplay.innerText = currentPlayer;           
-            playerDisplay.classList.add(`player${currentPlayer}`)
+            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';  
+            if(isGameActive) {
+                playerDisplay.innerText = currentPlayer + " Turn ";           
+                playerDisplay.classList.add(`player${currentPlayer}`)
+            }  
+            else{
+                playerDisplay.innerText = "The end"; 
+            }   
+            
     }
 
     const userAction = (tile, index) => {

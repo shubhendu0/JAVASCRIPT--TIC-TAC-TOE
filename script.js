@@ -116,6 +116,8 @@ window.addEventListener('DOMContentLoaded', () => {
             tile.classList.remove('player_X');
             tile.classList.remove('player_O');
         });
+        
+        playerDisplay.innerText = "New Game"
     }
 
     tiles.forEach( (tile, index) => {

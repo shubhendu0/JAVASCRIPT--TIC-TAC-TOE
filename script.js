@@ -80,7 +80,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     
     const changePlayer = () => {
-        playerDisplay.classList.remove(`player${currentPlayer}`);
             currentPlayer = currentPlayer === 'X' ? 'O' : 'X';  
             if(isGameActive) {
                 playerDisplay.innerText = currentPlayer + " Turn ";           

@@ -74,10 +74,6 @@ window.addEventListener('DOMContentLoaded', () => {
         }
         return true;
     };
-
-    const updateBoard =  (index) => {
-        board[index] = currentPlayer;
-    }
     
     const changePlayer = () => {
             currentPlayer = currentPlayer === 'X' ? 'O' : 'X';  
@@ -87,10 +83,12 @@ window.addEventListener('DOMContentLoaded', () => {
             }  
             else{
                 playerDisplay.innerText = "The end"; 
-            }   
-            
+            }            
     }
 
+    const updateBoard =  (index) => {
+        board[index] = currentPlayer;
+    }
     const userAction = (tile, index) => {
         if(isValidAction(tile) && isGameActive) {
             tile.innerText = currentPlayer;
@@ -100,28 +98,24 @@ window.addEventListener('DOMContentLoaded', () => {
             changePlayer();
         }
     }
+    tiles.forEach( (tile, index) => {
+        tile.addEventListener('click', () => userAction(tile, index));
+    })
     
     const resetBoard = () => {
         board = ['', '', '', '', '', '', '', '', ''];
         isGameActive = true;
         announcer.classList.add('hide');
-
         if (currentPlayer === 'O') {
             changePlayer();
         }
-
         tiles.forEach(tile => {
             tile.innerText = '';
             tile.classList.remove('player_X');
             tile.classList.remove('player_O');
-        });
-        
+        });     
         playerDisplay.innerText = "New Game"
     }
-
-    tiles.forEach( (tile, index) => {
-        tile.addEventListener('click', () => userAction(tile, index));
-    });
-
     resetButton.addEventListener('click', resetBoard);
+    
 });
